@@ -4,8 +4,8 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import Welcome from '../screens/Welcome';
-// import Login from '../screens/Login';
-// import Signup from '../screens/Signup';
+import Login from '../screens/Login';
+import Signup from '../screens/Signup';
 // import Forgot from '../screens/Forgot';
 // import Explore from '../screens/Explore';
 // import Browse from '../screens/Browse';
@@ -14,9 +14,9 @@ import Welcome from '../screens/Welcome';
 
 const screens = createStackNavigator(
   {
-    Welcome
-    // Login,
-    // Signup,
+    Welcome,
+    Login,
+    Signup,
     // Forgot,
     // Explore,
     // Browse,
@@ -27,7 +27,7 @@ const screens = createStackNavigator(
     initialRouteName: 'Welcome',
     defaultNavigationOptions: {
       headerStyle: {},
-      headerBackImage: <Image />,
+      headerBackImage: () => <Image />,
       headerBackTitle: null,
       headerLeftContainerStyle: {},
       headerRightContainerStyle: {}

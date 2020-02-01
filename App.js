@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import Navigation from './navigation/index';
+import { Block } from './components';
 
 //pre cache image to load into application
 const images = [
@@ -43,17 +44,21 @@ export default class App extends Component {
   };
 
   render() {
-    // if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-    //   return (
-    //     <AppLoading
-    //       startAsync={this.handleResourceAsync}
-    //       onError={error => console.warn(error)}
-    //       onFinish={() => this.setState({ isLoadingComplete: true })}
-    //     />
-    //   );
-    // }
+    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+      return (
+        <AppLoading
+          startAsync={this.handleResourceAsync}
+          onError={error => console.warn(error)}
+          onFinish={() => this.setState({ isLoadingComplete: true })}
+        />
+      );
+    }
 
-    return <Navigation />;
+    return (
+      <Block white>
+        <Navigation />
+      </Block>
+    );
   }
 }
 
