@@ -3,6 +3,8 @@ import { Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import { theme } from '../constants';
+
 import Welcome from '../screens/Welcome';
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
@@ -16,7 +18,7 @@ const screens = createStackNavigator(
   {
     Welcome,
     Login,
-    Signup,
+    Signup
     // Forgot,
     // Explore,
     // Browse,
@@ -24,13 +26,27 @@ const screens = createStackNavigator(
     // Settings
   },
   {
-    initialRouteName: 'Welcome',
+    // initialRouteName: 'Welcome',
     defaultNavigationOptions: {
-      headerStyle: {},
-      headerBackImage: () => <Image />,
+      headerStyle: {
+        height: theme.sizes.base * 4,
+        backgroundColor: theme.colors.white, // or 'white
+        borderBottomColor: 'transparent',
+        elevation: 0 // for android only
+      },
+      headerBackImage: () => (
+        <Image source={require('../assets/icons/back.png')} />
+      ),
       headerBackTitle: null,
-      headerLeftContainerStyle: {},
-      headerRightContainerStyle: {}
+      headerLeftContainerStyle: {
+        alignItems: 'center',
+        marginLeft: theme.sizes.base, //for iOS multiply the value by 2
+        paddingRight: theme.sizes.base
+      },
+      headerRightContainerStyle: {
+        alignItems: 'center',
+        paddingRight: theme.sizes.base
+      }
     }
   }
 );

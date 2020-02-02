@@ -25,6 +25,7 @@ export default class Welcome extends Component {
     showTerms: false
   };
 
+  //Image slider
   renderIllustrations() {
     const { illustrations } = this.props;
     return (
@@ -53,7 +54,7 @@ export default class Welcome extends Component {
       />
     );
   }
-
+  // dots in image slider bottom
   renderSteps() {
     const { illustrations } = this.props;
     const stepPosition = Animated.divide(this.scrollX, width);
@@ -79,7 +80,7 @@ export default class Welcome extends Component {
       </Block>
     );
   }
-
+  //Terms of service modal
   renderTermsService() {
     return (
       <Modal
@@ -267,7 +268,7 @@ export default class Welcome extends Component {
     );
   }
 }
-
+//default images to load in home screen
 Welcome.defaultProps = {
   illustrations: [
     { id: 1, source: require('../assets/images/illustration_1.png') },
