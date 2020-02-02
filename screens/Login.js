@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 import { Block, Button, Text, Input } from '../components';
 import { theme } from '../constants';
 import { Formik } from 'formik';
+import navigation from '../navigation';
 
 const formValidationSchema = Yup.object().shape({
   email: Yup.string()
@@ -37,6 +38,7 @@ export default class Login extends Component {
   };
 
   render() {
+    const { navigation } = this.props;
     return (
       <KeyboardAvoidingView style={styles.login} behavior="padding">
         <Formik
@@ -49,6 +51,7 @@ export default class Login extends Component {
             signUp({ email: values.email, password: values.password })
               .then(() => {
                 Alert.alert('User Registered successfully!');
+                actions.props.navigation.navigate('Browse');
               })
               .catch(err => {
                 actions.setFieldError('general', err.message);
@@ -96,7 +99,7 @@ export default class Login extends Component {
                       </Text>
                     </Button>
                   )}
-                  <Button onPress={() => {}}>
+                  <Button onPress={() => navigation.navigate('Forgot')}>
                     <Text
                       gray
                       caption

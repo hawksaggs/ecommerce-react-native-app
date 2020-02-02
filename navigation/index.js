@@ -8,7 +8,7 @@ import { theme } from '../constants';
 import Welcome from '../screens/Welcome';
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
-// import Forgot from '../screens/Forgot';
+import Forgot from '../screens/Forgot';
 // import Explore from '../screens/Explore';
 // import Browse from '../screens/Browse';
 // import Product from '../screens/Product';
@@ -18,15 +18,15 @@ const screens = createStackNavigator(
   {
     Welcome,
     Login,
-    Signup
-    // Forgot,
+    Signup,
+    Forgot
     // Explore,
     // Browse,
     // Product,
     // Settings
   },
   {
-    // initialRouteName: 'Welcome',
+    initialRouteName: 'Welcome',
     defaultNavigationOptions: {
       headerStyle: {
         height: theme.sizes.base * 4,
