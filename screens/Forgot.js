@@ -98,6 +98,7 @@ export default class Forgot extends Component {
                       Back to Login
                     </Text>
                   </Button>
+                  {<Text style={{ color: 'red' }}>{props.errors.general}</Text>}
                 </Block>
               </Block>
             </KeyboardAvoidingView>
