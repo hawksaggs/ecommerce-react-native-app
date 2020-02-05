@@ -10,7 +10,7 @@ import Login from '../screens/Login';
 import Signup from '../screens/Signup';
 import Forgot from '../screens/Forgot';
 // import Explore from '../screens/Explore';
-// import Browse from '../screens/Browse';
+import Browse from '../screens/Browse';
 // import Product from '../screens/Product';
 // import Settings from '../screens/Settings';
 
@@ -19,9 +19,9 @@ const screens = createStackNavigator(
     Welcome,
     Login,
     Signup,
-    Forgot
+    Forgot,
     // Explore,
-    // Browse,
+    Browse
     // Product,
     // Settings
   },
@@ -37,7 +37,8 @@ const screens = createStackNavigator(
       headerBackImage: () => (
         <Image source={require('../assets/icons/back.png')} />
       ),
-      headerBackTitle: null,
+      headerTitle: '',
+      headerBackTitle: '',
       headerLeftContainerStyle: {
         alignItems: 'center',
         marginLeft: theme.sizes.base, //for iOS multiply the value by 2

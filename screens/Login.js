@@ -21,14 +21,14 @@ const formValidationSchema = Yup.object().shape({
     .required('Required')
 });
 
-const signUp = ({ email, password }) => {
+const login = ({ email, password }) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (email === 'test@test.com') {
         reject(new Error('Duplicate email, please try again.'));
       }
       resolve(true);
-    }, 5000);
+    }, 1000);
   });
 };
 export default class Login extends Component {
@@ -48,10 +48,10 @@ export default class Login extends Component {
           }}
           validationSchema={formValidationSchema}
           onSubmit={(values, actions) => {
-            signUp({ email: values.email, password: values.password })
+            login({ email: values.email, password: values.password })
               .then(() => {
-                Alert.alert('User Registered successfully!');
-                actions.props.navigation.navigate('Browse');
+                // Alert.alert('User Registered successfully!');
+                navigation.navigate('Browse');
               })
               .catch(err => {
                 actions.setFieldError('general', err.message);
