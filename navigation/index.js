@@ -12,7 +12,7 @@ import Forgot from '../screens/Forgot';
 // import Explore from '../screens/Explore';
 import Browse from '../screens/Browse';
 // import Product from '../screens/Product';
-// import Settings from '../screens/Settings';
+import Settings from '../screens/Settings';
 
 const screens = createStackNavigator(
   {
@@ -21,9 +21,9 @@ const screens = createStackNavigator(
     Signup,
     Forgot,
     // Explore,
-    Browse
+    Browse,
     // Product,
-    // Settings
+    Settings
   },
   {
     initialRouteName: 'Welcome',
