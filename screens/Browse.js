@@ -8,8 +8,20 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const { width } = Dimensions.get('window');
 export default class Browse extends Component {
   state = {
-    active: 'Products'
+    active: 'Products',
+    categories: []
   };
+
+  componentDidMount() {
+    this.setState({ categories: this.props.categories })
+  }
+
+  handleTab = tab => {
+    const { categories } = this.props;
+    const filtered = categories.filter(category => category.tags.includes(tab.toLowerCase()));
+
+    this.setState({ active: tab, categories: filtered });
+  }
 
   renderTab(tab) {
     const { active } = this.state;
@@ -18,7 +30,7 @@ export default class Browse extends Component {
       <TouchableOpacity
         key={`tab-${tab}`}
         style={[styles.tab, isActive ? styles.active : null]}
-        onPress={() => this.setState({ active: tab })}
+        onPress={() => this.handleTab(tab)}
       >
         <Text size={16} medium gray={!isActive} secondary={isActive}>
           {tab}
@@ -28,7 +40,8 @@ export default class Browse extends Component {
   }
 
   render() {
-    const { profile, navigation, categories } = this.props;
+    const { profile, navigation } = this.props;
+    const { categories } = this.state;
     const tabs = ['Products', 'Inspirations', 'Shop'];
     return (
       <Block>
